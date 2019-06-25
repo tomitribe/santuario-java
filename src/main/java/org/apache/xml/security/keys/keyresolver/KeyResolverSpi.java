@@ -270,7 +270,7 @@ public abstract class KeyResolverSpi {
      */
     protected static Element getDocFromBytes(byte[] bytes, boolean secureValidation) throws KeyResolverException {
         try {
-            Document doc = XMLUtils.read(new ByteArrayInputStream(bytes), false, secureValidation);
+            Document doc = XMLUtils.read(new ByteArrayInputStream(bytes), secureValidation);
             return doc.getDocumentElement();
         } catch (SAXException ex) {
             throw new KeyResolverException(ex);

@@ -59,7 +59,7 @@ public abstract class CanonicalizerSpi {
 
         Document document;
         try {
-            document = XMLUtils.read(in, false, secureValidation);
+            document = XMLUtils.read(in, secureValidation);
         } finally {
             bais.close();
         }

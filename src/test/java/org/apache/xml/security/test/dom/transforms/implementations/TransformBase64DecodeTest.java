@@ -106,7 +106,7 @@ public class TransformBase64DecodeTest extends org.junit.Assert {
         //J+
 
         final InputStream is = new ByteArrayInputStream(input.getBytes());
-        final Document doc = XMLUtils.read(is, false, false, new org.apache.xml.security.utils.IgnoreAllErrorHandler());
+        final Document doc = XMLUtils.read(is, false);
         is.close();
 
         //XMLUtils.circumventBug2650(doc);

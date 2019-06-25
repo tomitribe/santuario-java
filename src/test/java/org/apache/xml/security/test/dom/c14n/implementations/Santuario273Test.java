@@ -77,7 +77,7 @@ public class Santuario273Test extends org.junit.Assert {
     @org.junit.Test
     public void testC14n11Base() throws Exception {
         final InputStream is = new ByteArrayInputStream(input.getBytes());
-        final Document doc = XMLUtils.read(is, true, false, new org.apache.xml.security.utils.IgnoreAllErrorHandler());
+        final Document doc = XMLUtils.read(is, false);
         is.close();
 
         Canonicalizer c14n =

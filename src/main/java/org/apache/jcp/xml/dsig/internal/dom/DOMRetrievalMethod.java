@@ -271,7 +271,7 @@ public final class DOMRetrievalMethod extends DOMStructure
             ApacheData data = (ApacheData)dereference(context);
 
             final InputStream is = new ByteArrayInputStream(data.getXMLSignatureInput().getBytes());
-            Document doc = XMLUtils.read(is, false, secVal);
+            Document doc = XMLUtils.read(is, secVal);
 			is.close();
 
             Element kiElem = doc.getDocumentElement();
