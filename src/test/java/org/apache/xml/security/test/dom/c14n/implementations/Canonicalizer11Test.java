@@ -354,10 +354,6 @@ public class Canonicalizer11Test extends org.junit.Assert {
         ParserConfigurationException, CanonicalizationException,
         InvalidCanonicalizerException, TransformerException, XPathExpressionException {
 
-        // org.xml.sax.EntityResolver resolver = new TestVectorResolver();
-        // documentBuilder.setEntityResolver(resolver);
-        // Document doc = documentBuilder.parse(resolver.resolveEntity(null, fileIn));
-
         Document doc = XMLUtils.read(fileIn, validating, false, new IgnoreAllErrorHandler());
 
         Canonicalizer c14n = Canonicalizer.getInstance(c14nURI);
