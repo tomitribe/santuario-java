@@ -913,10 +913,9 @@ public class DecryptionTest extends Assert {
     public void testPhysicalRepresentation() throws Exception {
         final String DATA1 =
                 "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ns:root xmlns:ns=\"ns.com\"><ns:elem xmlns:ns2=\"ns2.com\">11</ns:elem></ns:root>";
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(DATA1.getBytes(StandardCharsets.UTF_8))) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(DATA1.getBytes("UTF-8"));
+        Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Set up the Key
         byte[] bits192 = "abcdefghijklmnopqrstuvwx".getBytes();
@@ -978,10 +977,9 @@ public class DecryptionTest extends Assert {
     public void testPhysicalRepresentation2() throws Exception {
         final String DATA1 =
                 "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ns:root xmlns=\"defns.com\" xmlns:ns=\"ns.com\"><elem xmlns=\"\">11</elem></ns:root>";
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(DATA1.getBytes(StandardCharsets.UTF_8))) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(DATA1.getBytes("UTF-8"));
+        Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Set up the Key
         byte[] bits192 = "abcdefghijklmnopqrstuvwx".getBytes();

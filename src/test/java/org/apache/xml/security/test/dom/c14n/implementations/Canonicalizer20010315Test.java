@@ -670,10 +670,10 @@ public class Canonicalizer20010315Test extends org.junit.Assert {
             + "";
         //J+
 
-        Document doc = null;
-        try (InputStream is = new ByteArrayInputStream(inputStr.getBytes())) {
-            doc = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(inputStr.getBytes());
+        final Document doc = XMLUtils.read(is, false);
+        is.close();
+
         boolean weCatchedTheRelativeNS = false;
 
         try {
@@ -981,10 +981,10 @@ public class Canonicalizer20010315Test extends org.junit.Assert {
     ParserConfigurationException, CanonicalizationException,
     InvalidCanonicalizerException, TransformerException, XPathExpressionException {
 
-        Document doc = null;
-        try (InputStream is = new ByteArrayInputStream(input.getBytes())) {
-            doc = XMLUtils.read(is, true, true, new IgnoreAllErrorHandler());
-        }
+        final InputStream is = new ByteArrayInputStream(input.getBytes());
+        final Document doc = XMLUtils.read(is, true, true, new IgnoreAllErrorHandler());
+        is.close();
+
         Canonicalizer c14nizer =
             Canonicalizer.getInstance(Canonicalizer.ALGO_ID_C14N_OMIT_COMMENTS);
 
@@ -1101,10 +1101,10 @@ public class Canonicalizer20010315Test extends org.junit.Assert {
         //String ENCODING_ISO8859_1 = "ISO-8859-1";
         //String ENCODING_UTF8 = java.nio.charset.StandardCharsets.UTF_8;
         String ENCODING_UTF16 = "UTF-16";
-        Document doc = null;
-        try (InputStream is = new ByteArrayInputStream(input)) {
-            doc = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(input);
+        final Document doc = XMLUtils.read(is, false);
+        is.close();
+
         TransformerFactory tFactory = TransformerFactory.newInstance();
         Transformer transformer = tFactory.newTransformer();
 

@@ -18,10 +18,7 @@
  */
 package org.apache.xml.security.test.dom.encryption;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.*;
 import java.lang.reflect.Constructor;
 import java.security.Key;
 import java.security.KeyPairGenerator;
@@ -730,10 +727,10 @@ public class XMLCipherTest extends org.junit.Assert {
             // Test inherited namespaces don't add extra attributes
             // Test unused namespaces are preserved
             final String DATA1 = "<ns:root xmlns:ns=\"ns.com\"><ns:elem xmlns:ns2=\"ns2.com\">11</ns:elem></ns:root>";
-            Document doc = null;
-            try (InputStream is = new ByteArrayInputStream(DATA1.getBytes(StandardCharsets.UTF_8))) {
-                doc = XMLUtils.read(is, false);
-            }
+            InputStream is = new ByteArrayInputStream(DATA1.getBytes("UTF-8"));
+            Document doc = XMLUtils.read(is, false);
+            is.close();
+
             Element elem = (Element)doc.getDocumentElement().getFirstChild();
 
             XMLCipher dataCipher = XMLCipher.getInstance(XMLCipher.TRIPLEDES);
@@ -757,9 +754,10 @@ public class XMLCipherTest extends org.junit.Assert {
 
             // Test default namespace undeclaration is preserved
             final String DATA2 = "<ns:root xmlns=\"defns.com\" xmlns:ns=\"ns.com\"><elem xmlns=\"\">11</elem></ns:root>";
-            try (InputStream is = new ByteArrayInputStream(DATA2.getBytes(StandardCharsets.UTF_8))) {
-                doc = XMLUtils.read(is, false);
-            }
+            is = new ByteArrayInputStream(DATA2.getBytes("UTF-8"));
+            doc = XMLUtils.read(is, false);
+            is.close();
+
             elem = (Element)doc.getDocumentElement().getFirstChild();
 
             dataCipher = XMLCipher.getInstance(XMLCipher.TRIPLEDES);
@@ -784,9 +782,10 @@ public class XMLCipherTest extends org.junit.Assert {
             // Test comments and PIs are not treated specially when serializing element content.
             // Other c14n algorithms add a newline after comments and PIs, when they are before or after the document element.
             final String DATA3 = "<root><!--comment1--><?pi1 target1?><elem/><!--comment2--><?pi2 target2?></root>";
-            try (InputStream is = new ByteArrayInputStream(DATA3.getBytes(StandardCharsets.UTF_8))) {
-                doc = XMLUtils.read(is, false);
-            }
+            is = new ByteArrayInputStream(DATA3.getBytes("UTF-8"));
+            doc = XMLUtils.read(is, false);
+            is.close();
+
             elem = doc.getDocumentElement();
 
             dataCipher = XMLCipher.getInstance(XMLCipher.TRIPLEDES);

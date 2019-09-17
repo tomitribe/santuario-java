@@ -120,10 +120,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, rsaKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -163,10 +162,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, rsaKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -206,10 +204,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, rsaKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -249,10 +246,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, rsaKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -295,10 +291,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, rsaKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -341,10 +336,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, rsaKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -387,10 +381,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, rsaKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -433,10 +426,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, rsaKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -479,10 +471,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, rsaKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -525,10 +516,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, rsaKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -568,10 +558,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, ecKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -611,10 +600,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, ecKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -654,10 +642,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, ecKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -697,10 +684,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, ecKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -740,10 +726,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, ecKeyPair.getPublic(), properties.getSignatureSecureParts());
@@ -786,10 +771,9 @@ public class PKSignatureCreationTest extends AbstractSignatureCreationTest {
         xmlStreamWriter.close();
 
         // System.out.println("Got:\n" + new String(baos.toByteArray(), StandardCharsets.UTF_8.name()));
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(baos.toByteArray())) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Verify using DOM
         verifyUsingDOM(document, ecKeyPair.getPublic(), properties.getSignatureSecureParts());

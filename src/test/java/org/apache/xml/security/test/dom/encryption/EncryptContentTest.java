@@ -19,6 +19,7 @@
 package org.apache.xml.security.test.dom.encryption;
 
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.security.NoSuchAlgorithmException;
 
 import javax.crypto.Cipher;
@@ -109,10 +110,10 @@ public class EncryptContentTest extends org.junit.Assert {
             return;
         }
 
-        Document doc = null;
-        try (InputStream is = new ByteArrayInputStream(DATA.getBytes(StandardCharsets.UTF_8))) {
-            doc = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(DATA.getBytes("UTF-8"));
+        final Document doc = XMLUtils.read(is, false);
+        is.close();
+
         NodeList dataToEncrypt = doc.getElementsByTagName("user");
 
         XMLCipher dataCipher = XMLCipher.getInstance(XMLCipher.TRIPLEDES);
@@ -161,10 +162,10 @@ public class EncryptContentTest extends org.junit.Assert {
             return;
         }
 
-        Document doc = null;
-        try (InputStream is = new ByteArrayInputStream(MULTIPLE_USER_DATA.getBytes(StandardCharsets.UTF_8))) {
-            doc = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(MULTIPLE_USER_DATA.getBytes("UTF-8"));
+        final Document doc = XMLUtils.read(is, false);
+        is.close();
+
         NodeList dataToEncrypt = doc.getElementsByTagName("user");
 
         XMLCipher dataCipher = XMLCipher.getInstance(XMLCipher.TRIPLEDES);

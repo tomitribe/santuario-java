@@ -127,10 +127,10 @@ public class Xpath2TransformationTest extends org.junit.Assert {
         "      </edoc:ObjectContent>\n" + 
         "   </edoc:Object>";
 
-        org.w3c.dom.Document doc = null;
-        try (ByteArrayInputStream is = new ByteArrayInputStream(sig.getBytes())) {
-            doc = XMLUtils.read(is, false);
-        }
+        final ByteArrayInputStream is = new ByteArrayInputStream(sig.getBytes());
+        final org.w3c.dom.Document doc = XMLUtils.read(is, false);
+        is.close();
+
         Element sigElement =
             (Element) doc.getElementsByTagNameNS(
                 Constants.SignatureSpecNS, Constants._TAG_SIGNATURE).item(0);

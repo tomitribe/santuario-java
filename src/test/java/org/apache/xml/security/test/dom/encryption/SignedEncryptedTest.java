@@ -39,6 +39,7 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -99,10 +100,9 @@ public class SignedEncryptedTest extends Assert {
     }
 
     public void secureAndVerify(TransformerFactory transformerFactory, boolean useDocumentSerializer) throws Exception {
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(SAMPLE_MSG.getBytes(StandardCharsets.UTF_8))) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(SAMPLE_MSG.getBytes("UTF-8"));
+        Document document = XMLUtils.read(is, false);
+        is.close();
 
         // Set up the Key
         KeyPairGenerator rsaKeygen = KeyPairGenerator.getInstance("RSA");

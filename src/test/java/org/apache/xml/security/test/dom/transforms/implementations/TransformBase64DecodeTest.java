@@ -19,6 +19,7 @@
 package org.apache.xml.security.test.dom.transforms.implementations;
 
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPath;
@@ -104,10 +105,10 @@ public class TransformBase64DecodeTest extends org.junit.Assert {
             ;
         //J+
 
-        Document doc = null;
-        try (InputStream is = new ByteArrayInputStream(input.getBytes())) {
-            doc = XMLUtils.read(is, false, false, new org.apache.xml.security.utils.IgnoreAllErrorHandler());
-        }
+        final InputStream is = new ByteArrayInputStream(input.getBytes());
+        final Document doc = XMLUtils.read(is, false, false, new org.apache.xml.security.utils.IgnoreAllErrorHandler());
+        is.close();
+
         //XMLUtils.circumventBug2650(doc);
 
         XPathFactory xpf = XPathFactory.newInstance();

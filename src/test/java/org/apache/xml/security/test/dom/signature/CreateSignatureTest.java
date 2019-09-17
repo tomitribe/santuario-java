@@ -21,6 +21,7 @@ package org.apache.xml.security.test.dom.signature;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.KeyStore;
@@ -191,9 +192,9 @@ public class CreateSignatureTest extends org.junit.Assert {
         String signedDoc = new String(bos.toByteArray());
 
         // Now Verify
-        try (InputStream is = new ByteArrayInputStream(signedDoc.getBytes())) {
-            doc = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(signedDoc.getBytes());
+        doc = XMLUtils.read(is, false);
+        is.close();
 
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();
@@ -212,9 +213,9 @@ public class CreateSignatureTest extends org.junit.Assert {
         String signedXML = doSign();
 
         Document doc = null;
-        try (InputStream is = new ByteArrayInputStream(signedXML.getBytes())) {
-            doc = XMLUtils.read(is, false);
-        }
+        InputStream is = new ByteArrayInputStream(signedXML.getBytes());
+        doc = XMLUtils.read(is, false);
+        is.close();
 
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();
@@ -248,8 +249,6 @@ public class CreateSignatureTest extends org.junit.Assert {
         assertTrue(sa.verify(sigBytes));
         assertTrue(si.verify(false));
     }
-
-        Document doc = db.newDocument();
 
     private String doSign() throws Exception {
         PrivateKey privateKey = kp.getPrivate();
@@ -336,9 +335,9 @@ public class CreateSignatureTest extends org.junit.Assert {
 
     private void doVerify(String signedXML) throws Exception {
         Document doc = null;
-        try (InputStream is = new ByteArrayInputStream(signedXML.getBytes())) {
-            doc = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(signedXML.getBytes());
+        doc = XMLUtils.read(is, false);
+        is.close();
 
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();

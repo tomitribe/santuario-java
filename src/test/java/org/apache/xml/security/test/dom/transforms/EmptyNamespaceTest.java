@@ -95,10 +95,9 @@ public class EmptyNamespaceTest {
 
         Canonicalizer20010315Excl transformer = new Canonicalizer20010315ExclOmitComments();
 
-        Document document = null;
-        try (InputStream is = new ByteArrayInputStream(message.getBytes(java.nio.charset.StandardCharsets.UTF_8))) {
-            document = XMLUtils.read(is, false);
-        }
+        final InputStream is = new ByteArrayInputStream(message.getBytes("UTF-8"));
+        final Document document = XMLUtils.read(is, false);
+        is.close();
 
         String inclusiveNamespaces = "SOAP-ENV ec ec1 ns0 ns1 ns11 ns2 ns4 ns9";
         byte[] output =
